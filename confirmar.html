@@ -1,155 +1,88 @@
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOU ANGOLANO - Conhecimento vale Ouro</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
-
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #000;
-    color: #fff;
-  }
-
-  .opcao-deposito {
-    cursor: pointer;
-    border: 2px solid #222;
-    padding: 20px;
-    border-radius: 20px;
-    background: #111;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .opcao-deposito.selecionado {
-    border-color: #F8D308;
-    background: rgba(248, 211, 8, 0.1);
-  }
-
-  .opcao-deposito input {
-    display: none;
-  }
-
-  .w-5.h-5 {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid #666;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .w-5.h-5 .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #F8D308;
-    display: none;
-  }
-
-  .opcao-deposito.selecionado .dot {
-    display: block;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOU ANGOLANO - Conhecimento vale Ouro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --angola-red: #E31B23;
+            --angola-yellow: #F8D308;
+            --angola-black: #000000;
+            --gold-gradient: linear-gradient(135deg, #F8D308 0%, #D4AF37 50%, #F8D308 100%);
+        }
+        body, html { margin:0; padding:0; width:100%; overflow-x:hidden; font-family:'Inter', sans-serif; background-color:var(--angola-black); color:#fff;}
+        * { box-sizing:border-box; max-width:100%; }
+        .glass-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(15px); border:1px solid rgba(255,255,255,0.1);}
+        .opcao-deposito.selecionado { border-color: var(--angola-yellow); background: rgba(248,211,8,0.1);}
+        .opcao-deposito { cursor:pointer; border:2px solid #222; padding:20px; border-radius:20px; background:#111; transition: all 0.2s;}
+        label { cursor:pointer; }
+    </style>
 </head>
 <body>
+    <div class="min-h-screen bg-black text-white relative overflow-x-hidden">
+        <main class="max-w-7xl mx-auto py-12">
+            <div class="max-w-4xl mx-auto px-4 py-12 animate-zoom-in">
+                <div class="glass-card p-12 rounded-[4rem] border-zinc-700 text-center shadow-2xl relative">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-angola-yellow text-black px-8 py-2 rounded-full font-black uppercase text-sm italic">
+                        Desafio Cultural
+                    </div>
+                    <h2 class="text-4xl font-black text-white mb-10 italic uppercase tracking-tighter">DESAFIO CULTURAL</h2>
+                    <div id="quizSection" class="space-y-6">
+                        <div class="space-y-8 text-left">
+                            <div class="question bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                                <p class="text-white text-lg font-black mb-4">1️⃣ Quem não ouve ________, ouve coitado.</p>
+                                <div class="grid grid-cols-1 gap-3">
+                                    <label class="flex items-center gap-3 p-4 rounded-xl transition-all border-2 bg-zinc-800/50 border-transparent text-zinc-400 hover:bg-zinc-800">
+                                        <input type="radio" value="conselho" name="q1">
+                                        <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center border-zinc-600"></div>
+                                        <span class="font-bold uppercase text-sm tracking-widest">conselho</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 rounded-xl transition-all border-2 bg-zinc-800/50 border-transparent text-zinc-400 hover:bg-zinc-800">
+                                        <input type="radio" value="amigo" name="q1">
+                                        <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center border-zinc-600"></div>
+                                        <span class="font-bold uppercase text-sm tracking-widest">amigo</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 rounded-xl transition-all border-2 bg-zinc-800/50 border-transparent text-zinc-400 hover:bg-zinc-800">
+                                        <input type="radio" value="vizinho" name="q1">
+                                        <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center border-zinc-600"></div>
+                                        <span class="font-bold uppercase text-sm tracking-widest">vizinho</span>
+                                    </label>
+                                </div>
+                            </div>
 
-<div class="min-h-screen flex items-center justify-center p-6">
-  <div class="glass-card p-12 rounded-[4rem] border-zinc-700 text-center shadow-2xl relative bg-zinc-900/50">
-    <h2 class="text-4xl font-black text-white mb-10">DESAFIO CULTURAL</h2>
-    <div id="quizSection" class="space-y-6 text-left">
-      
-      <!-- Pergunta 1 -->
-      <div class="question p-6 rounded-2xl border border-zinc-800 space-y-3">
-        <p class="text-lg font-black mb-4">1️⃣ Quem não ouve ________, ouve coitado.</p>
-        <div class="grid grid-cols-1 gap-3">
-          <label class="opcao-deposito">
-            <input type="radio" name="q1" value="conselho">
-            <div class="w-5 h-5"><div class="dot"></div></div>
-            <span>conselho</span>
-          </label>
-          <label class="opcao-deposito">
-            <input type="radio" name="q1" value="amigo">
-            <div class="w-5 h-5"><div class="dot"></div></div>
-            <span>amigo</span>
-          </label>
-          <label class="opcao-deposito">
-            <input type="radio" name="q1" value="vizinho">
-            <div class="w-5 h-5"><div class="dot"></div></div>
-            <span>vizinho</span>
-          </label>
-        </div>
-      </div>
+                            <div class="question bg-zinc-900/50 p-6 rounded-2xl border border-zinc-800">
+                                <p class="text-white text-lg font-black mb-4">2️⃣ A ________ faz a força.</p>
+                                <div class="grid grid-cols-1 gap-3">
+                                    <label class="flex items-center gap-3 p-4 rounded-xl transition-all border-2 bg-zinc-800/50 border-transparent text-zinc-400 hover:bg-zinc-800">
+                                        <input type="radio" value="união" name="q2">
+                                        <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center border-zinc-600"></div>
+                                        <span class="font-bold uppercase text-sm tracking-widest">união</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 rounded-xl transition-all border-2 bg-zinc-800/50 border-transparent text-zinc-400 hover:bg-zinc-800">
+                                        <input type="radio" value="coragem" name="q2">
+                                        <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center border-zinc-600"></div>
+                                        <span class="font-bold uppercase text-sm tracking-widest">coragem</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 rounded-xl transition-all border-2 bg-zinc-800/50 border-transparent text-zinc-400 hover:bg-zinc-800">
+                                        <input type="radio" value="paciência" name="q2">
+                                        <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center border-zinc-600"></div>
+                                        <span class="font-bold uppercase text-sm tracking-widest">paciência</span>
+                                    </label>
+                                </div>
+                            </div>
 
-      <!-- Pergunta 2 -->
-      <div class="question p-6 rounded-2xl border border-zinc-800 space-y-3">
-        <p class="text-lg font-black mb-4">2️⃣ A ________ faz a força.</p>
-        <div class="grid grid-cols-1 gap-3">
-          <label class="opcao-deposito">
-            <input type="radio" name="q2" value="união">
-            <div class="w-5 h-5"><div class="dot"></div></div>
-            <span>união</span>
-          </label>
-          <label class="opcao-deposito">
-            <input type="radio" name="q2" value="coragem">
-            <div class="w-5 h-5"><div class="dot"></div></div>
-            <span>coragem</span>
-          </label>
-          <label class="opcao-deposito">
-            <input type="radio" name="q2" value="paciência">
-            <div class="w-5 h-5"><div class="dot"></div></div>
-            <span>paciência</span>
-          </label>
-        </div>
-      </div>
+                            <!-- Continue para as demais questões da mesma forma -->
+                        </div>
 
-      <!-- Pergunta 3 -->
-      <div class="question p-6 rounded-2xl border border-zinc-800 space-y-3">
-        <p class="text-lg font-black mb-4">3️⃣ Água mole em ________ dura, tanto bate até que fura.</p>
-        <div class="grid grid-cols-1 gap-3">
-          <label class="opcao-deposito">
-            <input type="radio" name="q3" value="pedra">
-            <div class="w-5 h-5"><div class="dot"></div></div>
-            <span>pedra</span>
-          </label>
-          <label class="opcao-deposito">
-            <input type="radio" name="q3" value="madeira">
-            <div class="w-5 h-5"><div class="dot"></div></div>
-            <span>madeira</span>
-          </label>
-          <label class="opcao-deposito">
-            <input type="radio" name="q3" value="ferro">
-            <div class="w-5 h-5"><div class="dot"></div></div>
-            <span>ferro</span>
-          </label>
-        </div>
-      </div>
-
+                        <button class="w-full py-5 px-6 rounded-2xl cursor-pointer text-xl mt-8 font-black uppercase tracking-widest transition-all shadow-xl bg-gradient-to-br from-[#4CAF50] to-[#2e7d32] text-white hover:scale-[1.02] active:scale-95">
+                            Finalizar Desafio
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-  </div>
-</div>
-
-<script>
-  // Torna opções clicáveis e visivelmente selecionadas
-  const opcoes = document.querySelectorAll('.opcao-deposito');
-
-  opcoes.forEach(opcao => {
-    opcao.addEventListener('click', () => {
-      const grupo = opcao.closest('.question');
-      grupo.querySelectorAll('.opcao-deposito').forEach(o => o.classList.remove('selecionado'));
-      opcao.classList.add('selecionado');
-      opcao.querySelector('input').checked = true;
-    });
-  });
-</script>
-
 </body>
 </html>
